@@ -1,16 +1,13 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
 
-{% block title %}Section{% endblock title %}
+{% block title %}New Article{% endblock title %}
 
 {% block content %}
-<h1>Create a new post</h1>
-<div class="form-container">
-    <div class=form-content>
+    <div class="newpost"><h1>New Article</h1>
         <form method="POST">
             {% csrf_token %}
-            {{form.as_p}}
+            {{ form.as_p }}
             <input type="submit" value="Create" class="btn btn-success">
         </form>
     </div>
-</div>
-{% endblock content %}
+{% endblock content %} 

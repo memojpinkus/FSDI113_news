@@ -1,22 +1,22 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+
+{% block title %}Posts{% endblock title %}
 
 {% block content %}
-
-{% for ob in object_list %}
-<div class="container-fluid">
-	<div class="row" >
-        <div class="section">
-            <h2>
-                {{ob.name}}
-            </h2>
-            <p>
-                <p>{{ob.description}}</p>
-            </p>
-                <div>
-                    <a class="btn btn-primary btn-sm"  href="{% url 'section_list' ob.name  %}">Learn more</a>
-                </div>
+<h1>Articles</h1>
+<div class="list">
+    {% for post in article_list %}
+    <div class="card" style="margin: 30px;">
+        <div class="card-body">
+            <div class="card-header">
+                <h5 class="card-title">{{ article.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Article #{{ article.id }}</h6>
+            </div>
+            <p class="card-text" style="font-size: 20px; padding: 10px;">{{ article.body | truncatechars:500 }}</p>
+            <a href="{% url 'article_detail' article.id %}" class="card-link" style="margin-left: 10px;">Continue reading</a>
         </div>
-	</div>
+    </div>
+    {% endfor %}
 </div>
-{% endfor %}
-{% endblock %}
+
+{% endblock content %} 

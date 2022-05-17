@@ -1,20 +1,15 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
 
-{% block title %}{{article.title}}{% endblock title %}
+{% block title %}Posts{% endblock title %}
 
-
-{% block content %}
-<div class="detail-header">
-    <h1 class="title-h1">{{article.section}}</h1>
-    <strong class="author-name">{{article.author}} | On {{article.created_on}}</strong>
-</div>
-<div class="detail-container">
+{% block content %} 
+    <h1>{{article.title}}</h1>
+    <strong>By {{article.author}} | On {{ article.created_on}} </strong>
     <p>{{article.body}}</p>
-{% if user.is_authenticated %}
-    <div class="detail-controls">
-        <a href="{% url 'article_edit' article.id %}" >Edit Post</a>
-        <a href="{% url 'article_delete' article.id %}" class="delete">Delete Post</a>
+    {% if user.is_authenticated %}
+    <div class="detail-btn">
+        <p><a class="btn btn-primary" href="{% url 'article_edit' post.id %}">Edit</a></p>
+        <p><a class="btn btn-danger" href="{% url 'article_delete' post.id %}">Delete</a></p>
     </div>
-{% endif %}
-</div>
-{% endblock content %}
+    {% endif %}
+{% endblock content %} 

@@ -1,18 +1,12 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
 
-{% block title %}Edit Post{% endblock title %}
+{% block title %}Edit Article{% endblock title %}
 
-
-{% block content %}
-
-<h1>Edit post</h1>
-    <div class="form-container ">
-        <div class='form-content'>
-            <form method="POST">
-                {% csrf_token %}
-                {{form.as_p}}
-                <input type="submit" value="Edit" class="btn btn-success">
-            </form>
-        </div>
-    </div>
-{% endblock content %}
+{% block content %} 
+    <h1>Edit Article</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Edit" class="btn btn-success">
+    </form>
+{% endblock content %} 
