@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for ob in object_list %}
+<div class="container-fluid">
+	<div class="row" >
+        <div class="section">
+            <h2>
+                {{ob.name}}
+            </h2>
+            <p>
+                <p>{{ob.description}}</p>
+            </p>
+                <div>
+                    <a class="btn btn-primary btn-sm"  href="{% url 'section_list' ob.name  %}">Learn more</a>
+                </div>
+        </div>
+	</div>
+</div>
+{% endfor %}
+{% endblock %}

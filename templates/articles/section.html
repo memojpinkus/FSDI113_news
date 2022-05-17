@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for obj in object_list %}
+
+<div class="post">
+<h2>{{obj.article}} | {{obj.section}}</h2>
+<p>{{obj.body}}<strong>{{obj.author}}</strong>
+    <a class="btn btn-primary btn-large"  href="{% url 'article_detail' obj.id  %}">Learn more</a>
+</p>
+{% endfor %}
+{% endblock %}
